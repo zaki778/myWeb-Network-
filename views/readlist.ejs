@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+        p
+        {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 2px black;
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Want to Read List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Want to Read List</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/searchresults' class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        
+        <!-- <button onclick="location.href = '/readlist';" id="readlist" class="btn btn-secondary ml-3">Add to Want to Read List</button> -->
+        
+        <!-- 
+            <% if(true){ %>
+            <h1>foo</h1>
+          <% } else{ %>  
+            <h1>bar</h1>
+         <% } %>
+         -->
+
+
+
+    </nav>
+    <div>
+        <p>
+            <% 
+            if(book1 !='none')
+            {
+             %>
+         <button onclick="location.href = '/flies';" id="readlist" class="btn btn-secondary ml-3"><%=book1 %></button>
+            <%
+             } 
+         
+
+         else
+         { 
+            
+         %> <p>      <%=book1 %> </p> <%
+            
+         } 
+         %>
+
+
+        </p>
+
+        <p>  
+         <% 
+          if(book2 !='none')
+              {%>
+         <button onclick="location.href = '/dune';" id="readlist" class="btn btn-secondary ml-3"><%=book2 %>  </button>
+              <%}
+
+              else
+              { 
+                 
+              %> <p>      <%=book2 %> </p> <%
+                 
+              } 
+              %>
+     
+
+         %>
+         
+         </p>
+        <p>  
+            <% if(book3 !='none')
+            {%>
+         <button onclick="location.href = '/leaves';" id="readlist" class="btn btn-secondary ml-3"><%=book3 %>   </button>
+         <%}
+
+         else
+         { 
+            
+         %> <p>      <%=book3 %> </p> <%
+            
+         } 
+         %>
+
+         %>
+         
+             
+        
+        </p>
+        <p>  
+            <% if(book4 !='none')
+            {%>
+         <button onclick="location.href = '/sun';" id="readlist" class="btn btn-secondary ml-3"><%=book4 %>   </button>
+         <%}
+         else
+         { 
+            
+         %> <p>      <%=book4 %> </p> <%
+            
+         } 
+         %>
+
+         %>
+         
+          </p>
+        <p>  
+            <% if(book5 !='none')
+            {%>
+         <button onclick="location.href = '/mockingbird';" id="readlist" class="btn btn-secondary ml-3"><%=book5 %>   </button>
+         <%}
+         else
+         { 
+            
+         %> <p>      <%=book5 %> </p> <%
+            
+         } 
+         %>
+
+         %>
+         
+          </p>
+        <p>  
+            <% if(book6 !='none')
+            {%>
+         <button onclick="location.href = '/grapes';" id="readlist" class="btn btn-secondary ml-3"><%=book6 %>   </button>
+         <%}
+         else
+         { 
+            
+         %> <p>      <%=book6 %> </p> <%
+            
+         } 
+         %>
+
+         %>
+         
+         </p>
+      </div>
+</body>
+</html>
