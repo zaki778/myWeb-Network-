@@ -4,7 +4,7 @@ var fs=require('fs');
 const { stringify } = require('querystring');
 const { userInfo } = require('os');
 var app = express();
-const session =require('express-session');
+var session =require('express-session');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -16,11 +16,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session
   ({
+    key: 'user_sid',
   secret: 'secret-key',
   resave: false,
   saveUninitialized: false,
+  cookie:
+  {
+    maxAge:3600000
+  }
   })
 );
+
 //new
 var isLoggedin=false;
 var loggedUser=null;
@@ -171,6 +177,8 @@ app.post('/registration',function(req,res)
 
 app.get('/',function(req,res)
 {
+  
+  
   if(loggedUser==-1)
     res.render('login', {title: "Not Logged in"});
   else
@@ -394,6 +402,7 @@ app.get('/readlist',function(req,res)
 
 
 
+
 app.get('/searchresults',function(req,res)
 {
   if (isLoggedin)
@@ -445,9 +454,71 @@ app.post('/searchresults' ,function(req,res)
 
 
 
+// let searchResults = function(searchString){
+//   let result = [];
+//   searchString = searchString.toUpperCase();
+//   if (searchString.length > 0 & searchString !=" "){
+//     if ('DUNE'.includes(searchString)){
+//       result.push('dune');
+//     }
+//     if ('LORD OF THE FLIES'.includes(searchString)){
+//       result.push('lord of the flies');
+//     }
+//     if ('THE GRAPES OF WRATH'.includes(searchString)){
+//       result.push('the grapes of wrath');
+//     }
+//     if ('LEAVES OF GRASS'.includes(searchString)){
+//       result.push('leaves of grass');
+//     }if ('TO KILL A MOCKINGBIRD'.includes(searchString)){
+//       result.push('to kill a mockingbird');
+//     }
+//     }if ('THE SUN AND HER FLOWERS'.includes(searchString)){
+//      result.push('the sun and her flowers');
+//     }
+//     return result;
+//   }
+  
 
 
+// let searchLinks = function(searchString){
+//   let link = [];
+//   searchString = searchString.toLowerCase();
+//   if (searchString.length > 0 & searchString !=" "){
+//     if ('DUNE'.includes(searchString)){
+//       result.push('dune');
+//     }
+//     if ('LORD OF THE FLIES'.includes(searchString)){
+//       result.push('lord of the flies');
+//     }
+//     if ('THE GRAPES OF WRATH'.includes(searchString)){
+//       result.push('the grapes of wrath');
+//     }
+//     if ('LEAVES OF GRASS'.includes(searchString)){
+//       result.push('leaves of grass');
+//     }if ('TO KILL A MOCKINGBIRD'.includes(searchString)){
+//       result.push('to kill a mockingbird');
+//     }
+//     }if ('THE SUN AND HER FLOWERS'.includes(searchString)){
+//      result.push('the sun and her flowers');
+//     }
+//     return result;
+//   }  
+  
 
+// app.post('/searchresults',function(req,res){
+//   let searchString =req.body.Search;
+//   let result = searchResults(searchString);
+//   let link = searchLinks(searchString);
+//   res.render('searchresults',{
+//     results:result, links:link
+//   });
+// });
+
+// app.get('/searchresults', function(req,res){
+//   res.render('searchresults',{
+//     results:[],links:[]
+//   });
+// });
 
 
 
